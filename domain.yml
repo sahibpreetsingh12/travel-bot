@@ -9,6 +9,8 @@ intents:
     is_retrieval_intent: true
 - faq2:
     is_retrieval_intent: true
+- faq3:
+    is_retrieval_intent: true
 - greet
 - goodbye
 - bot_challenge
@@ -18,6 +20,10 @@ intents:
 - mood_unhappy
 
 responses:
+  utter_faq3/tester:
+  - text: "RESPONSE for TESTER"
+  utter_faq3/tester1:
+  - text: "RESPONSE for TESTER1"
   utter_faq/ask_name:
   - text: Hello, my name is Retrieval Bot.
   - text: I am called Retrieval Bot!
@@ -46,3 +52,5 @@ actions:
 - utter_goodbye
 - utter_greet
 - utter_iamabot
+- action_greet
+- action_faq3

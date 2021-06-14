@@ -92,6 +92,20 @@ nlu:
     - do you provide any food discount
     - if i use your website will i get some discount on food
 
+- intent: faq3/tester
+  examples: |
+    - This is a tester intent
+    - I am testing using this intent
+    - ya this is test
+    - Faq3 is the test intent
+
+- intent: faq3/tester1
+  examples: |
+    - This is a tester intent for test1
+    - I am testing using this intent test1
+    - ya this is test1
+    - Faq3 is the test1 intent
+
 
 
 - intent: mood_unhappy

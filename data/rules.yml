@@ -16,6 +16,11 @@ rules:
   - intent: faq2
   - action: utter_faq2
 
+- rule: respond to FAQs
+  steps:
+  - intent: faq3
+  - action: action_faq3
+
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
   - intent: bot_challenge

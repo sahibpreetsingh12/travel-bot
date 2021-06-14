@@ -3,6 +3,12 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 
+entities:
+- intent_button
+slots:
+  intent_button:
+    type: list
+    influence_conversation: true
 
 intents:
 - faq:
@@ -34,8 +40,15 @@ responses:
   - text: we always provide upto 15 % additional discounts to our customers
   utter_faq2/food_help:
   - text: Sorry but on regular days we don't provide extra food coupons
-  utter_greet:
-  - text: Hey! How are you?
+
+  # utter_greet:
+  # - text: Hey! How are you?
+  #   buttons:
+  #     - title: "faq3"
+  #       payload: /action_faq3{{"intent_button":"faq3"}}
+  #     - title: "faq2"
+  #       payload: /action_faq3{{"intent_button":"faq2"}}
+
   utter_cheer_up:
   - text: 'Here is something to cheer you up:'
     image: https://i.imgur.com/nGF1K8f.jpg
@@ -50,7 +63,7 @@ responses:
 actions:
 - utter_faq
 - utter_goodbye
-- utter_greet
+# - utter_greet
 - utter_iamabot
 - action_greet
 - action_faq3

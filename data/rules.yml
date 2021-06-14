@@ -14,7 +14,7 @@ rules:
 - rule: respond to FAQs
   steps:
   - intent: faq2
-  - action: utter_faq2
+  - action: action_faq3
 
 - rule: respond to FAQs
   steps:

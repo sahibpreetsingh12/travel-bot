@@ -12,8 +12,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
-from rasa.shared.core.domain import Domain
-domain =  Domain.load("domain.yml")
+from rasa_sdk.events import SlotSet
 class ActionGreet(Action):
 
     def name(self) -> Text:
@@ -23,10 +22,13 @@ class ActionGreet(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        last_intent=tracker.latest_message['intent'].get('name')
-        print(last_intent)
-        # print(tracker.get_intent_of_latest_message())
-        dispatcher.utter_message(response = "utter_faq2/food_help")
+        
+        buttons = [
+            {"payload":'/action_faq3{"intent_button":"faq3"}',"title":"faq3"},
+            {"payload":'/action_faq3{"intent_button":"faq2"}',"title":"faq2"}
+        ]
+
+        dispatcher.utter_message(text="Hi How can i help you with Travel Bot",buttons=buttons)
 
         return []
 
@@ -39,18 +41,24 @@ class ActionFaq3(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        last_intent=tracker.latest_message['intent'].get('name')
-        print(last_intent)
-        print(tracker.latest_message['text']) # to get user typed message 
-        print('\n',"New line")
+        # to get a slot value (here --> slot is intent_button)
+        print("slots value is ",tracker.slots['intent_button']) 
+        slot_value_clicked = tracker.slots['intent_button']
 
-        intent_found = json.dumps(tracker.latest_message['response_selector'][last_intent]['ranking'][0]['intent_response_key'], indent=4)
+        # to get intent of user message
+        _intent=tracker.latest_message['intent'].get('name')
+        print("Intent of user message ",_intent)
+
+        print(tracker.latest_message['text']) # to get user typed message 
+
+        # actual retrieval intent found
+        intent_found = json.dumps(tracker.latest_message['response_selector'][_intent]['ranking'][0]['intent_response_key'], indent=4)
+        if _intent==slot_value_clicked[0]:
         #used eval to remove quotes around the string
-        
-        intent_found = f'utter_{eval(intent_found)}'
-        print(intent_found)
-        dispatcher.utter_message(response = intent_found) # use response for defining intent name
-        # print('All intent ','\n',domain['intents']) # in this way we can get list of all intents
-        # dispatcher.utter_message(text= " Ya we are there to help you")
+            intent_found = f'utter_{eval(intent_found)}'
+            
+            dispatcher.utter_message(response = intent_found) # use response for defining intent name
+        else:
+             dispatcher.utter_message(text = f"Please select your questions from {slot_value_clicked}")
 
         return []

@@ -1,0 +1,57 @@
+<!-- <html>
+    <header><title>INDIAN DATA PORTAL</title></header>
+
+    <body>
+        helllo world
+      <div id="webchat"/>
+      <script src="https://storage.googleapis.com/mrbot-cdn/webchat-latest.js"></script>
+      <script>
+        Webchat.default.init({
+          selector : "#webchat",
+          initPayload : "/get_started",
+          customData  : {"language":"en"},
+          socketUrl : "http://localhost:5005/",
+          socketPath : "/socket.io/",
+          title : "IDP BOT",
+          subtitle : "I am sahib",
+
+        })  
+      </script>
+  
+    </body>
+</html> -->
+<html> 
+  <head><title>INDIAN BOT</title></head>
+  <body>
+    IDP BOT TO HELP YOU REGARDING IDP
+      <script>!(function () {
+  let e = document.createElement("script"),
+    t = document.head || document.getElementsByTagName("head")[0];
+  (e.src =
+    "https://cdn.jsdelivr.net/npm/rasa-webchat@1.x.x/lib/index.js"),
+    // Replace 1.x.x with the version that you want
+    (e.async = !0),
+    (e.onload = () => {
+      window.WebChat.default(
+        {
+          initPayload : '/greet',
+          customData: { language: "en" },
+          // socketUrl: "http://20.198.96.248",
+          socketUrl: "http://localhost:5005/",
+          title :'IDP BOT',
+          subtitle : "Say hi to idp bot ",
+          docViewer : true,
+          socketPath : "/socket.io/",
+          
+          // add other props here
+        },
+        null
+      );
+    }),
+    t.insertBefore(e, t.firstChild);
+})
+();
+
+    </script>
+  </body>
+</html>

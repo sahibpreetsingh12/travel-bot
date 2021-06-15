@@ -5,9 +5,31 @@ stories:
 - story: happy path
   steps:
   - intent: greet
-  - action: action_greet
-#   - intent: mood_great
-#   - action: utter_happy
+  - action: utter_greet
+  - action: action_slot_setter
+
+- story: ok story
+  steps:
+  # - intent: ok_faq3
+  - intent : ok
+    entities:
+      - intent_button: "faq3"
+  - slot_was_set:
+      - intent_button: "faq3"
+  # - action : utter_ok_faq3
+  - action: utter_ok
+
+- story: ok story
+  steps:
+  # - intent: ok_faq2
+  - intent : ok
+    entities:
+      - intent_button: "faq2"
+  - slot_was_set:
+      - intent_button: "faq2"
+  # - action : utter_ok_faq2
+  - action : utter_ok
+
 
 # - story: sad path 1
 #   steps:

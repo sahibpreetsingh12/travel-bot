@@ -6,6 +6,8 @@ rules:
   steps:
   - intent: goodbye
   - action: utter_goodbye
+
+
 - rule: respond to FAQs
   steps:
   - intent: faq

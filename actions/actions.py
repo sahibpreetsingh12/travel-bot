@@ -13,10 +13,10 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
 from rasa_sdk.events import SlotSet
-class ActionGreet(Action):
+class ActionSlotSetter(Action):
 
     def name(self) -> Text:
-        return "action_greet"
+        return "action_slot_setter"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -24,11 +24,11 @@ class ActionGreet(Action):
 
         
         buttons = [
-            {"payload":'/action_faq3{"intent_button":"faq3"}',"title":"faq3"},
-            {"payload":'/action_faq3{"intent_button":"faq2"}',"title":"faq2"}
+            {"payload":'/ok{"intent_button":"faq3"}',"title":"faq3"},
+            {"payload":'/ok{"intent_button":"faq2"}',"title":"faq2"}
         ]
 
-        dispatcher.utter_message(text="Hi How can i help you with Travel Bot",buttons=buttons)
+        dispatcher.utter_message(text="I am there to help you",buttons=buttons)
 
         return []
 

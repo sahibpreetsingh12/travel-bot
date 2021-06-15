@@ -22,6 +22,9 @@ intents:
 - bot_challenge
 - affirm
 - deny
+- ok
+# - ok_faq3
+# - ok_faq2
 - mood_great
 - mood_unhappy
 
@@ -41,13 +44,8 @@ responses:
   utter_faq2/food_help:
   - text: Sorry but on regular days we don't provide extra food coupons
 
-  # utter_greet:
-  # - text: Hey! How are you?
-  #   buttons:
-  #     - title: "faq3"
-  #       payload: /action_faq3{{"intent_button":"faq3"}}
-  #     - title: "faq2"
-  #       payload: /action_faq3{{"intent_button":"faq2"}}
+  utter_greet:
+  - text: Hey! How are you?
 
   utter_cheer_up:
   - text: 'Here is something to cheer you up:'
@@ -60,10 +58,12 @@ responses:
   - text: Bye
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
+  # utter_ok_faq3:
+  # - text: Ok go ahead  :)
+  # utter_ok_faq2:
+  # - text: Ok go ahead  :) 
+  utter_ok:
+  - text: Yup go ahead :) 
 actions:
-- utter_faq
-- utter_goodbye
-# - utter_greet
-- utter_iamabot
-- action_greet
+- action_slot_setter
 - action_faq3

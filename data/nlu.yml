@@ -132,3 +132,21 @@ nlu:
     - am I talking to a human?
     - are you a chatbot
 
+- intent: ok
+  examples : |
+    - ok
+    - okay
+    - done
+    - its over form my side
+    - Done
+    - okay its done
+
+# - intent: ok_faq2
+#   examples : |
+#     - ok 2
+#     - okay2
+#     - done
+#     - its over form my side
+#     - Done
+#     - okay its done
+
